@@ -144,6 +144,48 @@ class Shopping {
 }
 
 
+
+
+const customer1: Customer = {
+    id: 1,
+    name: "David",
+    email: "david@example.com",
+    phone: "08012345678",
+    address: {
+        street: "Allen Avenue",
+        city: "Ikeja",
+        state: "Lagos",
+        country: "Nigeria"
+    }
+};
+
+const products: Product[] = [
+    { id: 1, name: "Shoe", price: 25000, stock: 10 },
+    { id: 2, name: "Bag", price: 15000, stock: 5 },
+    { id: 3, name: "Watch", price: 40000, stock: 3 }
+];
+
+const shop = new Shopping("ORDER-001", customer1, products);
+
+shop.addToCart(1, 2);
+shop.addToCart(2, 1);
+
+console.log("Total:", shop.calculateTotal());
+
+const foundProduct = shop.searchProduct("shoe");
+console.log("Found product:", foundProduct);
+
+shop.sortByPrice();
+console.log("Products after sorting:", products);
+
+shop.removeFromCart(2);
+
+const receipt = shop.checkout();
+console.log("Receipt:", receipt);
+
+
+
+
 class student { //this is what student should have and do
     private id: number; // this student/ this student has a special matric numeber 
     private name: string; // This student object has a private name stored inside it
